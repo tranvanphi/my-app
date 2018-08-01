@@ -1,0 +1,9 @@
+.alert{
+    padding:0px;
+    border:none;
+}
+.alert .content-error {
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+}

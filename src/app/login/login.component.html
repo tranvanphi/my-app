@@ -1,0 +1,38 @@
+<div class="card card-login-register">
+  <div class="card-header">
+    <h3 class="text-center title-login">Đăng nhập</h3>
+  </div>
+  <div class="card-body">
+    <form #loginForm="ngForm" (ngSubmit)="onFormSubmit(loginForm)" class="form-login">
+      <div *ngIf="isLoginError" class="alert alert-danger">
+        <div class="content-error">
+          Đăng nhập không thành công!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="userlg">Tài khoản</label>
+        <input name="username" ngModel #username="ngModel" type="text" class="form-control" id="userlg" required>
+      </div>
+      <div *ngIf="username?.touched" class="alert alert-danger">
+        <div *ngIf="username.errors?.required" class="content-error">
+          username is required!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="pwdlg">Mật khẩu</label>
+        <input name="password" ngModel #password="ngModel" type="password" class="form-control" id="pwdlg" required>
+      </div>
+
+      <div *ngIf="password?.touched" class="alert alert-danger">
+        <div *ngIf="password.errors?.required" class="content-error">
+          password is required!
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" [disabled]="loginForm.invalid">Đăng nhập</button>
+      <div class="form-separator">
+        <p class="text-center">hoặc</p>
+      </div>
+      <a type="button" href="register" class="btn btn-success btn-block btn-register">Đăng ký</a>
+    </form>
+  </div>
+</div>

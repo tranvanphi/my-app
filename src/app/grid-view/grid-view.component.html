@@ -1,0 +1,15 @@
+<div *ngFor="let posts of listposts" class="col-custom col-12 col-sm-6 col-md-4">
+	<div class="card">
+		<div class="wrap-img-item">
+			<img class="card-img-top" src="assets/image.jpg" alt="Card image">
+		</div>
+
+		<div class="card-body">
+			<h4 class="card-title">
+				<a href="#">{{posts.title}}</a>
+			</h4>
+			<p class="card-text">{{posts.price}}d</p>
+			<a href="#" class="btn btn-primary">Chi tiết</a>
+		</div>
+	</div>
+</div>

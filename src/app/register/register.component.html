@@ -1,0 +1,66 @@
+<div class="card card-login-register">
+  <div class="card-header">
+    <h3 class="text-center title-register">Đăng ký</h3>
+  </div>
+  <div class="card-body">
+    <form #registerForm="ngForm" (ngSubmit)="registerSubmit(registerForm)" class="form-register">
+      <div class="form-group">
+        <label for="name">Họ Tên</label>
+        <input name="name" ngModel #name="ngModel" type="text" class="form-control" id="name" required>
+      </div>
+      <div *ngIf="name?.touched" class="alert alert-danger">
+        <div *ngIf="name.errors?.required" class="content-error">
+          name is required!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="user">Tài khoản</label>
+        <input name="username" ngModel #username="ngModel" type="text" class="form-control" id="user" minlength="5" required>
+      </div>
+      <div *ngIf="username?.touched" class="alert alert-danger">
+        <div *ngIf="username.errors?.required" class="content-error">
+          username is required!
+        </div>
+        <div *ngIf="username.errors?.minlength">
+          username must be at least 5 characters long.
+        </div>
+      </div>
+
+      <div ngModelGroup="passwordGroup" appConfirmEqualValidator #passwordGroup="ngModelGroup" [class.has-error]="passwordGroup.errors?.notEqual && passwordGroup.errors?.required">
+        <div class="form-group" [class.has-error]="password.touched && password.invalid">
+          <label for="pass" class="control-label">Password </label>
+          <input name="password" required type="text" class="form-control" id="pass" ngModel #password="ngModel" minlength="5">
+          <div *ngIf="password.touched" class="alert alert-danger">
+            <div *ngIf="password.errors?.required" class="content-error">
+              password is required!
+            </div>
+            <div *ngIf="password.errors?.minlength" class="content-error">
+              password must be at least 5 characters long.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" [class.has-error]="confirmPassword.touched && confirmPassword.invalid">
+          <label for="cpass" class="control-label">Confirm Password</label>
+          <input name="confirmPassword" required type="text" class="form-control" id="cpass" ngModel #confirmPassword="ngModel">
+          <div *ngIf="confirmPassword.touched && confirmPassword.errors?.required" class="alert alert-danger content-error">
+            confirmPassword is required
+          </div>
+          <div *ngIf="confirmPassword.touched && passwordGroup.errors?.notEqual && !confirmPassword.errors?.required" class="alert alert-danger content-error">
+            password and confirm password not match
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" ngModel #email="ngModel" class="form-control" id="email" required>
+      </div>
+      <a type="button" href="login" class="btn btn-primary btn-block btn-login">Đăng nhập</a>
+      <div class="form-separator">
+        <p class="text-center">hoặc</p>
+      </div>
+      <button type="submit" class="btn btn-success btn-block" [disabled]="registerForm.invalid">Đăng ký</button>
+    </form>
+  </div>
+</div>

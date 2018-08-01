@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-sm bg-warning fixed-top navbar-custom">
+  <div class="container">
+     <a class="navbar-brand" href="#">
+      <img src="assets/logo.png" alt="Logo">
+     </a>
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse navbar-collapse my-lg-0" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+           <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fa fa-search fa-lg" aria-hidden="true"></i> <span class="hidden-sm">Tìm rao vặt</span></a>
+           </li>
+
+          
+           <li *ngIf="!inforUser" class="nav-item ">
+              <a class="nav-link" href="login" ><i class="fa fa-user-circle fa-lg" aria-hidden="true"></i> <span class="hidden-sm">Đăng nhập/ Đăng kí</span></a>
+           </li>
+
+           <li *ngIf="inforUser" class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle infor-name" href="#" id="navbardrop" data-toggle="dropdown">
+                 <i class="fa fa-user-circle fa-lg" aria-hidden="true"></i>
+                 {{inforUser.name}}
+              </a>
+              <div class="dropdown-menu">
+                 <a class="dropdown-item" href="#">trang cá nhân</a>
+                 <a class="dropdown-item" (click)="Logout()">đăng xuất</a>
+              </div>
+           </li>
+
+           
+           <li class="nav-item">
+              <a class="nav-link btn btn-post-news" href="#">Đăng tin</a>
+            </li>
+        </ul>
+     </div>
+  </div>
+</nav>
