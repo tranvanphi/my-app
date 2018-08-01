@@ -1,3 +1,61 @@
-<p>
-  list-post-child works!
-</p>
+<div class="row row-content">
+    <div class="col-sm-12 col-md-3 col-lg-4">
+      <app-sidebar-menu></app-sidebar-menu>
+    </div>
+    <div class="col-sm-12 col-md-9 col-lg-8">
+      <div class="input-group input-group-custom">
+        <input type="text" class="form-control" placeholder="Tìm sản phẩm" aria-label="search">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <div class="view-group input-group-append ">
+          <a class="view-mode" (click)="setCurrentView('list')" [ngClass]="{'active':currentView === 'list'}">
+            <i class="fa fa-th-list fa-lg" aria-hidden="true"></i>
+          </a>
+          <a class="view-mode" (click)="setCurrentView('grid')" [ngClass]="{'active':currentView === 'grid'}">
+            <i class="fa fa-th-large fa-lg" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+  
+      <div class="top-bar">
+        <ul class="nav nav-tabs nav-tabs-custom">
+          <li class="nav-item">
+            <a class="filter" [ngClass]="{'active':typeUser === 'all'}" (click)="getUserType('all');">Tất cả</a>
+          </li>
+          <li class="nav-item">
+            <a class="filter" [ngClass]="{'active':typeUser === '0'}" (click)="getUserType('0');">Cá nhân</a>
+          </li>
+          <li class="nav-item">
+            <a class="filter" [ngClass]="{'active':typeUser === '1'}" (click)="getUserType('1');">Bán chuyên</a>
+          </li>
+        </ul>
+        <div class="dropdown dropdown-custom">
+          <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+            Tin mới trước
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item sort" [ngClass]="{'active':typeSort === 'price'}" (click)="getSort('price');">Giá thấp trước</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item sort" [ngClass]="{'active':typeSort === 'date'}" (click)="getSort('date');">Tin mới trước</a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="tab-content">
+        <div class="row row-custom" [ngSwitch]="currentView">
+          <div *ngSwitchCase="'list'">
+            <app-list-view [listposts]="ListPosts" class="list-view row row-custom"></app-list-view>
+          </div>
+          <div *ngSwitchCase="'grid'">
+            <app-grid-view [listposts]="ListPosts" class="grid-view row row-custom"></app-grid-view>
+          </div>
+        </div>
+        <nav aria-label="navigation">
+          <ul class="pagination">
+            <li *ngFor="let pages of totalPages; let i=index" class="page-item">
+              <a class="page-link" href="" (click)="setPage(i, $event)" [ngClass]="{'active':i==page}">{{i+1}}</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>

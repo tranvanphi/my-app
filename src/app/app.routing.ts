@@ -6,6 +6,8 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ListCatelogComponent } from './list-catelog/list-catelog.component';
 import { ListPostComponent } from './list-post/list-post.component';
+import { ListPostChildComponent } from './list-post-child/list-post-child.component';
+import { PostDetailComponent } from './post-detail/post-detail.component';
 
 
 const routes: Routes = [
@@ -23,13 +25,18 @@ const routes: Routes = [
 		//, canActivate: [AuthGuard]
 	},
 	{
-		path: 'catalog_detalt/:id',
+		path: 'catalog_detalt/:name',
 		component: ListPostComponent
 	},
 	{
-		path: 'catalog_detalt_child/:name',
-		component: ListPostComponent
+		path: 'catalog_detalt_child/:id',
+		component: ListPostChildComponent
+	},
+	{
+		path: 'post_detail/:id',
+		component: PostDetailComponent
 	}
+	
 ];
 
 @NgModule({

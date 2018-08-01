@@ -19,6 +19,7 @@ import { ListPostComponent } from './list-post/list-post.component';
 import { GridViewComponent } from './grid-view/grid-view.component';
 import { ListViewComponent } from './list-view/list-view.component';
 import { ListPostChildComponent } from './list-post-child/list-post-child.component';
+import { PostDetailComponent } from './post-detail/post-detail.component';
 
 
 
@@ -35,7 +36,8 @@ import { ListPostChildComponent } from './list-post-child/list-post-child.compon
     ListPostComponent,
     GridViewComponent,
     ListViewComponent,
-    ListPostChildComponent
+    ListPostChildComponent,
+    PostDetailComponent
   ],
   imports: [
     BrowserModule,

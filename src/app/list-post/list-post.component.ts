@@ -20,16 +20,16 @@ export class ListPostComponent implements OnInit {
 	private totalPages: Array<number>;
 	private ListPosts: Array<any>;
 	private typeUser: any = 'all';
-	private Name: any = this.route.snapshot.paramMap.get('id');
-	// private typeSort:number = 1;
+	private Name: any = this.route.snapshot.paramMap.get('name');
+	private typeSort:string = 'date';
 
 	ngOnInit() {
 		this.getPosts();
 	}
 
 	getPosts() {
-		// getPosts(name:string, page:number,typeUser:number, typeSort:number)
-		this.PostService.getPosts(this.Name, this.page, this.typeUser).subscribe(
+		// getPosts(name:string, page:number,typeUser:number, typeSort:string)
+		this.PostService.getPosts(this.Name, this.page, this.typeUser,this.typeSort).subscribe(
 			data => {
 				this.ListPosts = data['result'];
 				// console.log(this.ListPosts);
@@ -54,6 +54,12 @@ export class ListPostComponent implements OnInit {
 	getUserType(type) {
 		this.typeUser = type;
 		this.page = 0;
+		this.getPosts();
+	}
+
+	getSort(type){
+		this.typeSort = type;
+		// this.page = 0;
 		this.getPosts();
 	}
 

@@ -1,0 +1,20 @@
+.filter {
+    padding: 5px;
+}
+.filter.active {
+border-bottom: 2px solid #9c9c9c;
+background: #eaeaea;
+}
+
+.view-mode.active{
+background: #eaeaea;
+}
+
+.row.row-custom >div{
+    width:100%;
+}
+
+.page-link.active{
+    background: #007bff;
+    color:white;
+}

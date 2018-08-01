@@ -12,13 +12,16 @@ export class PostService {
   
   constructor(private http: HttpClient) { }
 
-  getPosts(name:string, page:number,typeUser:string){
-    // console.log(name);
-    // getPosts(name:string, page:number,typeUser:number, typeSort:number){
-    var data = "name="+name+"&page="+page+"&typeUser="+typeUser;
-    // var data = "name="+name+"&page="+page+"&typeUser="+typeUser+"&typeSort="+typeSort;
+  getPosts(name:string, page:number,typeUser:number, typeSort:string){
+    var data = "name="+name+"&page="+page+"&typeUser="+typeUser+"&typeSort="+typeSort;
     var reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'});
     return this.http.post(this.rootUrl + 'listPosts', data, {headers: reqHeader});
+  }
+
+  getPostsChild(id:number, page:number,typeUser:number, typeSort:string){
+    var data = "id="+id+"&page="+page+"&typeUser="+typeUser+"&typeSort="+typeSort;
+    var reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'});
+    return this.http.post(this.rootUrl + 'listPostsChild', data, {headers: reqHeader});
   }
 
   
