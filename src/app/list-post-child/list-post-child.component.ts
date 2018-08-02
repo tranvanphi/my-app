@@ -3,15 +3,15 @@ import { PostService } from '../_services/post.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-list-post-child',
-  templateUrl: './list-post-child.component.html',
-  styleUrls: ['./list-post-child.component.css']
+	selector: 'app-list-post-child',
+	templateUrl: './list-post-child.component.html',
+	styleUrls: ['./list-post-child.component.css']
 })
 export class ListPostChildComponent implements OnInit {
-  constructor(
+	constructor(
 		private PostService: PostService,
 		private route: ActivatedRoute,
-		private router: Router 
+		private router: Router
 	) { }
 
 	private currentView: string = 'list';
@@ -19,16 +19,16 @@ export class ListPostChildComponent implements OnInit {
 	private totalPages: Array<number>;
 	private ListPosts: Array<any>;
 	private typeUser: any = 'all';
-  	private Id: any = this.route.snapshot.paramMap.get('id');
-  
-  private typeSort:string = 'date';
-  
-  ngOnInit() {
+	private Id: any = this.route.snapshot.paramMap.get('id');
+
+	private typeSort: string = 'date';
+
+	ngOnInit() {
 		this.getPosts();
 	}
 
 	getPosts() {
-		this.PostService.getPostsChild(this.Id, this.page, this.typeUser,this.typeSort).subscribe(
+		this.PostService.getPostsChild(this.Id, this.page, this.typeUser, this.typeSort).subscribe(
 			data => {
 				this.ListPosts = data['result'];
 				// console.log(this.ListPosts);
@@ -56,7 +56,7 @@ export class ListPostChildComponent implements OnInit {
 		this.getPosts();
 	}
 
-	getSort(type){
+	getSort(type) {
 		this.typeSort = type;
 		// this.page = 0;
 		this.getPosts();

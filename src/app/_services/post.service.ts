@@ -24,5 +24,10 @@ export class PostService {
     return this.http.post(this.rootUrl + 'listPostsChild', data, {headers: reqHeader});
   }
 
+  getPostsDetail(id:number){
+    var data = "id="+id;
+    var reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'});
+    return this.http.post(this.rootUrl + 'postDetail', data, {headers: reqHeader});
+  }
   
 }

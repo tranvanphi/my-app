@@ -20,6 +20,8 @@ import { GridViewComponent } from './grid-view/grid-view.component';
 import { ListViewComponent } from './list-view/list-view.component';
 import { ListPostChildComponent } from './list-post-child/list-post-child.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
+import { DateFormatPipe } from './_pipe/date-format.pipe';
+import { FormatTypeUserPipe } from './_pipe/format-type-user.pipe';
 
 
 
@@ -37,7 +39,9 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
     GridViewComponent,
     ListViewComponent,
     ListPostChildComponent,
-    PostDetailComponent
+    PostDetailComponent,
+    DateFormatPipe,
+    FormatTypeUserPipe
   ],
   imports: [
     BrowserModule,

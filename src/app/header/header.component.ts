@@ -19,7 +19,6 @@ export class HeaderComponent implements OnInit {
 
 	ngOnInit() {
 		this.showUser();
-		
 		HeaderService.subcribeChangeHead.subscribe((loginUser)=>{
 			// console.log(loginUser);
 			this.inforUser = loginUser;
