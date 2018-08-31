@@ -18,18 +18,20 @@ export class PostDetailComponent implements OnInit {
 	private detail: any = [];
 	private Id: any = this.route.snapshot.paramMap.get('id');
 	private flag:boolean = false;
-
+	public listImage:any;	
 
 	ngOnInit() {
-		this.getPostsDetail();
+		this.getPostsDetail();		
 	}
-
 
 	getPostsDetail() {
 		this.PostService.getPostsDetail(this.Id).subscribe(
 			data => {
 				this.detail = data;
-				console.log(this.detail);
+				// console.log(this.detail);
+				var temp = this.detail.image_list;
+				this.listImage = temp.split(",");
+				console.log('listImage',this.listImage);
 			},
 			(error) => {
 				console.log(error.error.message);

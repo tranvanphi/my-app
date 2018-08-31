@@ -1,3 +1,18 @@
 .content-button{
     color:white;
 }
+
+.location{
+    color: #2b639e;
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.price{
+    color:red;
+}
+
+.carousel-item img{
+    max-height: 300px;
+    margin:0 auto;
+}

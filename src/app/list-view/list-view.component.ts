@@ -12,6 +12,7 @@ export class ListViewComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.listposts);
   }
 
 }

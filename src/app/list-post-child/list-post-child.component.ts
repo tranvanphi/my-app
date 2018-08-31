@@ -19,6 +19,7 @@ export class ListPostChildComponent implements OnInit {
 	private totalPages: Array<number>;
 	private ListPosts: Array<any>;
 	private typeUser: any = 'all';
+	private imgAvatarPost:string;
 	private Id: any = this.route.snapshot.paramMap.get('id');
 
 	private typeSort: string = 'date';
@@ -31,7 +32,7 @@ export class ListPostChildComponent implements OnInit {
 		this.PostService.getPostsChild(this.Id, this.page, this.typeUser, this.typeSort).subscribe(
 			data => {
 				this.ListPosts = data['result'];
-				// console.log(this.ListPosts);
+				console.log(this.ListPosts);
 				this.totalPages = new Array(data['totalPage']);
 			},
 			(error) => {

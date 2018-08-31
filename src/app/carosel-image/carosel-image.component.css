@@ -1,0 +1,7 @@
+img{
+    height: 300px;
+    margin: 0 auto;
+}
+.carousel-item{
+    background-color: #00000024 !important;
+}

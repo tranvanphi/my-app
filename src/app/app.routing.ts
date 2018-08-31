@@ -8,6 +8,7 @@ import { ListCatelogComponent } from './list-catelog/list-catelog.component';
 import { ListPostComponent } from './list-post/list-post.component';
 import { ListPostChildComponent } from './list-post-child/list-post-child.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
+import { NewPostComponent } from './new-post/new-post.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,7 @@ const routes: Routes = [
 	{
 		path: '',
 		component: ListCatelogComponent
-		//, canActivate: [AuthGuard]
+		
 	},
 	{
 		path: 'catalog_detalt/:name',
@@ -35,6 +36,10 @@ const routes: Routes = [
 	{
 		path: 'post_detail/:id',
 		component: PostDetailComponent
+	},{
+		path: 'new_post',
+		component:NewPostComponent,
+		canActivate: [AuthGuard]
 	}
 	
 ];

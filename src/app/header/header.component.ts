@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit {
 	showUser() {
 		this.AuthenticationService.getUserClaims().subscribe((data: any) => {
 			this.inforUser = data;
+			console.log(this.inforUser);
 		}, (err: HttpErrorResponse) => {
 			this.inforUser = false;
 			// console.log(this.inforUser);

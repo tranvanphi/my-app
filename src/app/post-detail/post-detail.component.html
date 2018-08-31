@@ -8,49 +8,21 @@
 				<li class="breadcrumb-item active" aria-current="page">{{detail.nameCatelog}}</li>
 			</ol>
 		</nav>
-		<div id="demo" class="carousel slide" data-ride="carousel">
 
-			<!-- Indicators -->
-			<ul class="carousel-indicators">
-				<li data-target="#demo" data-slide-to="0" class="active"></li>
-				<li data-target="#demo" data-slide-to="1"></li>
-				<li data-target="#demo" data-slide-to="2"></li>
-			</ul>
+		<app-carosel-image *ngIf="listImage" [listimage]="listImage" ></app-carosel-image>
 
-			<!-- The slideshow -->
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img src="assets/la.jpg" alt="Los Angeles">
-				</div>
-				<div class="carousel-item">
-					<img src="assets/chicago.jpg" alt="Chicago">
-				</div>
-				<div class="carousel-item">
-					<img src="assets/ny.jpg" alt="New York">
-				</div>
-			</div>
-
-			<!-- Left and right controls -->
-			<a class="carousel-control-prev" href="#demo" data-slide="prev">
-				<span class="carousel-control-prev-icon"></span>
-			</a>
-			<a class="carousel-control-next" href="#demo" data-slide="next">
-				<span class="carousel-control-next-icon"></span>
-			</a>
-
-		</div>
 
 		<div class="alert alert-primary" role="alert">
-				{{detail.typeUser | formatTypeUser | uppercase}}
+			{{detail.typeUser | formatTypeUser | uppercase}}
 		</div>
 		<div class="sticky-top right-content invisible-lg">
-			
+
 			<div class="card">
 				<div class="wrap-avatar rounded-circle">
 					<img src="assets/user.jpg" class="" alt="Cinque Terre">
 				</div>
 				<div class="card-body">
-					<h5 class="card-title">{{detail.name}}</h5>
+					<h5 class="card-title">{{detail.name | uppercase}}</h5>
 					<p class="card-text">ngày tham gia:{{detail.date_join | dateFormat }}</p>
 					<a (click)="showPhone()" class="btn btn-success btn-block">
 						<p *ngIf="!flag" class="content-button">
@@ -62,8 +34,10 @@
 		</div>
 		<div class="content-post">
 			<h2>{{detail.title}}</h2>
-			<span>{{detail.price}}</span>
+			<span class="price">{{detail.price}}</span>
 			<p>{{detail.content}}</p>
+			<p class="location">
+				<i class="fas fa-map-marker-alt"></i> Khu vực: {{detail.nameDistrict}} - {{detail.nameProvince}}</p>
 		</div>
 
 	</div>
@@ -76,7 +50,7 @@
 				</div>
 
 				<div class="card-body">
-					<h5 class="card-title">{{detail.name}}</h5>
+					<h5 class="card-title">{{detail.name | uppercase}}</h5>
 					<p class="card-text">ngày tham gia:{{detail.date_join | dateFormat}}</p>
 					<a (click)="showPhone()" class="btn btn-success btn-block">
 						<p *ngIf="!flag" class="content-button">

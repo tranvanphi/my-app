@@ -22,7 +22,10 @@ import { ListPostChildComponent } from './list-post-child/list-post-child.compon
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { DateFormatPipe } from './_pipe/date-format.pipe';
 import { FormatTypeUserPipe } from './_pipe/format-type-user.pipe';
+import { NewPostComponent } from './new-post/new-post.component';
+import { CaroselImageComponent } from './carosel-image/carosel-image.component';
 
+import { ImageUploadModule } from "angular2-image-upload";
 
 
 
@@ -41,14 +44,17 @@ import { FormatTypeUserPipe } from './_pipe/format-type-user.pipe';
     ListPostChildComponent,
     PostDetailComponent,
     DateFormatPipe,
-    FormatTypeUserPipe
+    FormatTypeUserPipe,
+    NewPostComponent,
+    CaroselImageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule.forRoot(),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ImageUploadModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }

@@ -43,10 +43,10 @@
       <div class="tab-content">
         <div class="row row-custom" [ngSwitch]="currentView">
           <div *ngSwitchCase="'list'">
-            <app-list-view [listposts]="ListPosts" class="list-view row row-custom"></app-list-view>
+            <app-list-view *ngIf="ListPosts" [listposts]="ListPosts" class="list-view row row-custom"></app-list-view>
           </div>
           <div *ngSwitchCase="'grid'">
-            <app-grid-view [listposts]="ListPosts" class="grid-view row row-custom"></app-grid-view>
+            <app-grid-view *ngIf="ListPosts" [listposts]="ListPosts" class="grid-view row row-custom"></app-grid-view>
           </div>
         </div>
         <nav aria-label="navigation">

@@ -18,9 +18,12 @@ export class LoginComponent implements OnInit {
 		private router: Router
 	) { }
 
-	ngOnInit() { }
+	ngOnInit() { 
+		this.AuthenticationService.logout();
+	}
 
 	onFormSubmit(userForm: NgForm) {
+		// console.log(userForm);return;
 		var user = userForm.controls['username'].value;
 		var pass = userForm.controls['password'].value;
 

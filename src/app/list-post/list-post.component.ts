@@ -32,7 +32,7 @@ export class ListPostComponent implements OnInit {
 		this.PostService.getPosts(this.Name, this.page, this.typeUser,this.typeSort).subscribe(
 			data => {
 				this.ListPosts = data['result'];
-				// console.log(this.ListPosts);
+				console.log(this.ListPosts);
 				this.totalPages = new Array(data['totalPage']);
 			},
 			(error) => {

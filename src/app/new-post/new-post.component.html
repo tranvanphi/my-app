@@ -1,0 +1,33 @@
+
+<div class="wrap-form">
+	<form #newPostForm="ngForm" (ngSubmit)="newPostSubmit(newPostForm)" class="form-addposts">
+		<label for="userlg">Tiêu đề</label>
+		<input name="title" ngModel #title="ngModel" class="form-control" placeholder="tiêu đề">
+		<label for="userlg">Giá</label>
+		<input name="price" ngModel #price="ngModel" class="form-control" placeholder="100000">
+
+		<label for="userlg">Danh mục</label>
+		<select name="catalog" ngModel #catalog="ngModel" class="selectpicker form-control">
+			<optgroup *ngFor="let key of getKeys(data)" label="{{getGroupName(key)}}">
+				<option *ngFor="let item of data[key]" value="{{item.id}}">{{item.name}}</option>
+			</optgroup>
+		</select>
+
+		<label for="userlg">Khu vực</label>
+		<select name="location" ngModel #location="ngModel" class="selectpicker form-control">
+			<optgroup *ngFor="let key of getKeys(dataLocation)" label="{{getProviceName(key)}}">
+				<option *ngFor="let item of dataLocation[key]" value="{{item.id}}">{{item.name}}</option>
+			</optgroup>
+		</select>
+
+		<label for="userlg">Ảnh</label>
+		<image-upload  [url]="'http://localhost/appAPI/index.php/api/posts/uploads'"
+					   (uploadFinished)="onUploadFinished($event)"
+					   (removed)="onRemoved($event)"></image-upload>
+
+		<label for="userlg">Nội dung</label>
+		<textarea name="content" ngModel #content="ngModel" rows="4" cols="50" class="form-control"></textarea>
+
+		<button type="submit" class="btn btn-success btn-block" [disabled]="newPostForm.invalid">Đăng Tin</button>
+	</form>
+</div>
